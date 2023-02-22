@@ -1,6 +1,6 @@
 import * as React from "react";
 import { View, Text } from "react-native";
-import { typeBox } from "../../types/typeBox";
+import { typeBox } from "../../types/global";
 export const Box = ({
   width,
   height,
