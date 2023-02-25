@@ -33,10 +33,10 @@ const styles = StyleSheet.create({
   containerBetween: {
     flex: 1,
   },
-  err:{
-    color:'red',
-    marginTop:15
-  }
+  err: {
+    color: "red",
+    marginLeft: 25,
+  },
 });
 
 export default styles;

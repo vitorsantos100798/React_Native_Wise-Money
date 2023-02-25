@@ -23,7 +23,6 @@ export const Login = () => {
       <View style={styles.boxLogin}>
         <View style={styles.boxtextlogin}>
           <Text style={styles.styleText}>Login</Text>
-          <Text style={styles.err}>{err}</Text>
         </View>
 
         <View style={styles.containerBetween}>
@@ -32,6 +31,7 @@ export const Login = () => {
             value={formik.values.email}
             onChangeText={(value) => formik.setFieldValue("email", value)}
           />
+           <Text style={styles.err}>{err}</Text>
           <Input
             placeholder="Digite Sua Senha"
             value={formik.values.password}

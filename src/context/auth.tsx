@@ -9,14 +9,15 @@ const AuthProvider = ({ children }) => {
   const [err, setErr] = useState("")
 
   const signIn = useCallback(async ({ email, password }) => {
-    try {
-      const response = await signInService({ identifier:email, password });
-      const {accessToken,expire} = response
-       await AsyncStorage.setItem("@token",JSON.stringify(accessToken))
-       await AsyncStorage.setItem("@expireToken",JSON.stringify(expire))
-    } catch (error) {
-      return setErr(error.message)
-    }
+      const response = await signInService({ identifier:email, password })
+      .then((value)=>{
+        const {accessToken,expire} = value
+       AsyncStorage.setItem("@token",JSON.stringify(accessToken))
+       AsyncStorage.setItem("@expireToken",JSON.stringify(expire))
+      }).catch((error)=>{
+        return setErr(error.response.data.message)
+      })
+      return response
   }, []);
 
   return (
