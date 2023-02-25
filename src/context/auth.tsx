@@ -13,13 +13,14 @@ const AuthProvider = ({ children }) => {
       (error) => {
         return setErr(error.response.data.message);
       }
-    );;
+    );
 
     const { accessToken, expire } = response;
     AsyncStorage.setItem("@token", JSON.stringify(accessToken));
     AsyncStorage.setItem("@expireToken", JSON.stringify(expire))
     return {
-      accessToken
+      accessToken,
+      expire
     };
   }, []);
 

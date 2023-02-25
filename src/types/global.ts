@@ -10,10 +10,11 @@ export type SignInCredentials = {
   password: string;
 };
 export type AuthProviderType = {
-  signIn(credentials: SignInCredentials): Promise<void>;
+  signIn(credentials: SignInCredentials): Promise<PayloadType>;
   err: string;
 };
 export type PayloadType = {
+  accessToken: any;
   acessToken: string;
   expire: string;
 };

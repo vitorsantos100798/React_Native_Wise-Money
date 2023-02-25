@@ -8,6 +8,7 @@ import { useContext } from "react";
 import { AuthContext } from "../../context/auth";
 import { useFormik } from "formik";
 import { useNavigation } from "@react-navigation/native";
+import { PayloadType } from "../../types/global";
 export const Login = () => {
   const { signIn, err} = useContext(AuthContext);
   const navigation = useNavigation();
