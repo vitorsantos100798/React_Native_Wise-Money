@@ -11,7 +11,7 @@ export type SignInCredentials = {
 };
 export type AuthProviderType = {
   signIn(credentials: SignInCredentials): Promise<void>;
-  err:string
+  err: string;
 };
 export type PayloadType = {
   acessToken: string;

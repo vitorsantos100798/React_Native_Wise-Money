@@ -6,22 +6,27 @@ import { useState } from "react";
 import { AuthProviderType } from "../types/global";
 export const AuthContext = createContext({} as AuthProviderType);
 const AuthProvider = ({ children }) => {
-  const [err, setErr] = useState("")
+  const [err, setErr] = useState(" ");
 
   const signIn = useCallback(async ({ email, password }) => {
-      const response = await signInService({ identifier:email, password })
-      .then((value)=>{
-        const {accessToken,expire} = value
-       AsyncStorage.setItem("@token",JSON.stringify(accessToken))
-       AsyncStorage.setItem("@expireToken",JSON.stringify(expire))
-      }).catch((error)=>{
-        return setErr(error.response.data.message)
-      })
-      return response
+    const response = await signInService({ identifier: email, password }).catch(
+      (error) => {
+        return setErr(error.response.data.message);
+      }
+    );;
+
+    const { accessToken, expire } = response;
+    AsyncStorage.setItem("@token", JSON.stringify(accessToken));
+    AsyncStorage.setItem("@expireToken", JSON.stringify(expire))
+    return {
+      accessToken
+    };
   }, []);
 
   return (
-    <AuthContext.Provider value={{ signIn,err}}>{children}</AuthContext.Provider>
+    <AuthContext.Provider value={{ signIn, err }}>
+      {children}
+    </AuthContext.Provider>
   );
 };
 

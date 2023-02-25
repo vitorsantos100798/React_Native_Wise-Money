@@ -2,19 +2,27 @@ import * as React from "react";
 import { View, Image, Text } from "react-native";
 import { Input } from "../../components/Input/Index";
 import ButtonField from "../../components/Bottom";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 import styles from "./styles";
 import { useContext } from "react";
 import { AuthContext } from "../../context/auth";
 import { useFormik } from "formik";
-
-
+import { useNavigation } from "@react-navigation/native";
 export const Login = () => {
-  const { signIn,err } = useContext(AuthContext);
-
+  const { signIn, err} = useContext(AuthContext);
+  const navigation = useNavigation();
   const formik = useFormik({
     initialValues: { email: "", password: "" },
     onSubmit: () => formik.values,
   });
+  const handlerSignIn = async() => {
+   await signIn(formik.values)
+   .then((response)=> {
+    if(response.accessToken){
+      navigation.navigate("Home")
+    }
+   })
+  };
   return (
     <View style={styles.container}>
       <View style={styles.containerImage}>
@@ -31,16 +39,14 @@ export const Login = () => {
             value={formik.values.email}
             onChangeText={(value) => formik.setFieldValue("email", value)}
           />
-           <Text style={styles.err}>{err}</Text>
+          <Text style={styles.err}>{err}</Text>
           <Input
             placeholder="Digite Sua Senha"
             value={formik.values.password}
             onChangeText={(value) => formik.setFieldValue("password", value)}
           />
 
-          <ButtonField
-          onPress={() => signIn(formik.values)}
-          >Acessar</ButtonField>
+          <ButtonField onPress={handlerSignIn}>Acessar</ButtonField>
         </View>
       </View>
     </View>
