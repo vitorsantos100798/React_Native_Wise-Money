@@ -10,19 +10,10 @@ const AuthProvider = ({ children }) => {
 
   const signIn = useCallback(async ({ email, password }) => {
     try {
-      const response = await signInService({ email, password });
-      const { acessToken, expire } = response;
-      api.defaults.headers.common.authorization = `${acessToken}`;
-
-      const token = await AsyncStorage.setItem("@wise:Token", JSON.stringify(acessToken));
-      const expireDate = await AsyncStorage.setItem(
-        "@wise:expireToken",
-         JSON.stringify(expire)
-      );
-      return {
-        token,
-        expireDate,
-      };
+      const response = await signInService({ identifier:email, password });
+      const {accessToken,expire} = response
+       await AsyncStorage.setItem("@token",JSON.stringify(accessToken))
+       await AsyncStorage.setItem("@expireToken",JSON.stringify(expire))
     } catch (error) {
       return setErr(error.message)
     }
