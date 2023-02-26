@@ -11,11 +11,12 @@ export const Box = ({
 }: typeBox) => {
   return (
     <>
-      <Text style={{ color: "#00000099", fontSize: 22, fontWeight: "bold", marginBottom:8 }}>
+      <Text style={{marginLeft:15, color: "#00000099", fontSize: 22, fontWeight: "bold", marginBottom:8 }}>
         {textHeader}
       </Text>
       <View
         style={{
+          marginLeft:15,
           width: width,
           height: height,
           backgroundColor: backgroundColor,

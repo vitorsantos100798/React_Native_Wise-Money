@@ -12,6 +12,17 @@ const styles = StyleSheet.create({
     height:'80%',
     margin:20,
     borderColor:'#DEDEDE'
+  },
+  pipeTwo:{
+    borderWidth:1,
+    height:'80%',
+    margin:10,
+    borderColor:'#DEDEDE'
+  },
+  containerBoxTwo: {
+    flex:1,
+    display:'flex',
+    flexDirection:'row'
   }
 
 });

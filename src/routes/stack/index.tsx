@@ -8,7 +8,7 @@ export const Routes = () => {
 
   return (
     <NavigateContainer>
-      <Stack.Navigator initialRouteName="Login">
+      <Stack.Navigator initialRouteName="Home">
         <Stack.Screen 
         name="Home" 
         component={Home} 
