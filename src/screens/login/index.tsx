@@ -2,7 +2,6 @@ import * as React from "react";
 import { View, Image, Text } from "react-native";
 import { Input } from "../../components/Input/Index";
 import ButtonField from "../../components/Bottom";
-import AsyncStorage from "@react-native-async-storage/async-storage";
 import styles from "./styles";
 import { useContext } from "react";
 import { AuthContext } from "../../context/auth";
