@@ -29,11 +29,23 @@ export const Home = () => {
 
       <Box height={76} width={380} backgroundColor={"#d3d3d3"}>
         <View style={styles.containerBoxTwo}>
-          <InnerBoxthree ImageBox={"clock"} />
+          <InnerBoxthree ImageBox={"clock"}
+          Valor={"1.500,00"}
+          TextBottomOne={"Total a "}
+          TextBottomTwo={"Receber"}
+          />
           <View style={styles.pipeTwo}></View>
-          <InnerBoxthree ImageBox={"money"} />
+          <InnerBoxthree ImageBox={"money"}
+           Valor={"100,00"}
+           TextBottomOne={"Total de "}
+           TextBottomTwo={"CashBack"}
+          />
           <View style={styles.pipeTwo}></View>
-          <InnerBoxthree ImageBox={"handmoney"} />
+          <InnerBoxthree ImageBox={"handmoney"}
+          Valor={"100,00"}
+          TextBottomOne={"Total"}
+          TextBottomTwo={"Recebido"}
+          />
         </View>
       </Box>
     </SafeAreaView>
