@@ -11,13 +11,13 @@ const styles = StyleSheet.create({
     borderWidth:1,
     height:'80%',
     margin:20,
-    borderColor:'#DEDEDE'
+    borderColor:'#d3d3d3'
   },
   pipeTwo:{
     borderWidth:1,
     height:'80%',
     margin:10,
-    borderColor:'#DEDEDE'
+    borderColor:'#d3d3d3'
   },
   containerBoxTwo: {
     flex:1,

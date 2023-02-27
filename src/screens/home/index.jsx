@@ -3,13 +3,14 @@ import styles from "./styles";
 import { Box } from "../../components/Box";
 import { InnerBoxthree } from "../../components/InerBoxThree";
 import { InnerBoxRow } from "../../components/InnerBoxRow";
+import {InnerBoxTwo} from '../../components/innerBoxTwo';
 export const Home = () => {
   return (
     <SafeAreaView>
       <Box
         height={56}
         width={380}
-        backgroundColor={"#d3d3d3"}
+        backgroundColor={"#dedede"}
         textHeader={"Resultados"}
       >
         <View style={styles.container}>
@@ -27,7 +28,7 @@ export const Home = () => {
         </View>
       </Box>
 
-      <Box height={76} width={380} backgroundColor={"#d3d3d3"}>
+      <Box height={76} width={380}   backgroundColor={"#dedede"}>
         <View style={styles.containerBoxTwo}>
           <InnerBoxthree ImageBox={"clock"}
           Valor={"1.500,00"}
@@ -47,6 +48,27 @@ export const Home = () => {
           TextBottomTwo={"Recebido"}
           />
         </View>
+      </Box>
+
+      <Box
+      height={76} 
+      width={380}
+      backgroundColor={"#dedede"}
+      >
+       <InnerBoxTwo
+       pathImage={true}
+       TextOne={"Total de Saques"}
+       Value={"R$ 0,00"}
+       />
+        <View style={{
+          borderColor:"#d3d3d3",
+          borderWidth:1,
+          marginBottom:5
+        }}></View>
+       <InnerBoxTwo
+       TextOne={"Total de Saques"}
+       Value={"R$ 0,00"}
+       />
       </Box>
     </SafeAreaView>
   );
